@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./administrador.component.scss']
 })
 export class AdministradorComponent implements OnInit {
-
-  constructor() { }
-
+ 
+  constructor( ) { }
+ 
   ngOnInit() {
   }
+
+  
 
 }
