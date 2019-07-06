@@ -1,22 +1,63 @@
 <div class="container">
-  <mat-form-field>
-    <input matInput placeholder="Nombre(s)">
-  </mat-form-field>
+  <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      
+      <div class="col-6">
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput formControlName="nombres" placeholder="Nombre(s)">
+            <mat-error *ngIf="empleadoForm.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
-  <mat-form-field>
-    <input matInput placeholder="Apellido Paterno">
-  </mat-form-field>
+      <div class="col-6">
+        <mat-form-field>
+          <mat-select placeholder="Puesto">
+            <mat-option value="option">Cocinero</mat-option>
+            <mat-option value="option">Mesero</mat-option>
+            <mat-option value="option">Cejera</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
 
-  <mat-form-field>
-    <mat-select placeholder="Puesto">
-      <mat-option value="option">Cocinero</mat-option>
-      <mat-option value="option">Mesero</mat-option>
-      <mat-option value="option">Cejera</mat-option>
-    </mat-select>
-  </mat-form-field>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput formControlName="apellidoPaterno" placeholder="Apellido Paterno">
+            <mat-error *ngIf="empleadoForm.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+      <div class="col-6">
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput formControlName="apellidoMaterno" placeholder="Apellido Materno">
+            <mat-error *ngIf="empleadoForm.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <button type="submit" [disabled]="!empleadoForm.valid">Submit</button>
+
+  </form>
+
+  <p>
+    Form Status: {{ empleadoForm.status }}
+  </p>
+
 </div>
 
-<!--<form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+<!--<form>
     <input type="text" formControlName="firstName" required>
 
     <div formGroupName="address">

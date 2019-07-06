@@ -14,14 +14,17 @@ export class EmpleadosComponent implements OnInit {
 
   empleadoForm = this.fb.group({
     nombres: ['', Validators.required],
-    lastName: [''],
-    address: this.fb.group({
-      street: [''],
-      city: [''],
-      state: [''],
-      zip: ['']
-    }),
+    apellidoPaterno: [''],
+    apellidoMaterno: [''],
+    puesto: [''],
   });
+
+
+  getErrorMessage() {
+    return this.empleadoForm.controls.nombres.hasError('required') ? 'Ingresa el nombre del empleado' :
+        this.empleadoForm.hasError('') ? 'Not a valid email' :
+            '';
+  }
 
   ngOnInit() {
   }
