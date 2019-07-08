@@ -1,60 +1,50 @@
 <div class="container">
-  <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
-    <div class="row">
+
+  <div class="second-container">
+    <h3>Empleados</h3>
+    <button mat-raised-button (click)="openDialog()"><mat-icon>add</mat-icon>Agregar Empleado</button>
+  </div>
+
+  <!--mat-elevation-z8-->
+  <hr>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombres">
+            <th mat-header-cell *matHeaderCellDef> Nombre(s) </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="apellidoPaterno">
+            <th mat-header-cell *matHeaderCellDef> A. Paterno </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellidoPaterno}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="apellidoMaterno">
+            <th mat-header-cell *matHeaderCellDef> A. Materno </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellidoMaterno}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="cargo">
+            <th mat-header-cell *matHeaderCellDef> Cargo </th>
+            <td mat-cell *matCellDef="let element"> {{element.cargo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> -- </th>
+            <td mat-cell *matCellDef="let element"> <button mat-stroked-button color="accent"><mat-icon>edit</mat-icon></button></td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> -- </th>
+            <td mat-cell *matCellDef="let element"> <button mat-stroked-button color="warn"> <mat-icon>remove_circle</mat-icon> </button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+        
       
-      <div class="col-6">
-        <div class="form-group">
-          <mat-form-field>
-            <input matInput formControlName="nombres" placeholder="Nombre(s)">
-            <mat-error *ngIf="empleadoForm.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="col-6">
-        <mat-form-field>
-          <mat-select placeholder="Puesto">
-            <mat-option value="option">Cocinero</mat-option>
-            <mat-option value="option">Mesero</mat-option>
-            <mat-option value="option">Cejera</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-6">
-        <div class="form-group">
-          <mat-form-field>
-            <input matInput formControlName="apellidoPaterno" placeholder="Apellido Paterno">
-            <mat-error *ngIf="empleadoForm.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-
-
-
-      <div class="col-6">
-        <div class="form-group">
-          <mat-form-field>
-            <input matInput formControlName="apellidoMaterno" placeholder="Apellido Materno">
-            <mat-error *ngIf="empleadoForm.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-    </div>
-
-    
-
-    <button type="submit" [disabled]="!empleadoForm.valid">Submit</button>
-
-  </form>
-
-  <p>
-    Form Status: {{ empleadoForm.status }}
-  </p>
-
 </div>
 
 <!--<form>

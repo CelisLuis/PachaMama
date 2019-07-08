@@ -15,6 +15,7 @@ import { MaterialModule } from './material/material.module';
 import { EmpleadosComponent } from './admin/empleados/empleados.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
+import { ModalComponent } from './admin/modal/modal.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AdminComponent } from './admin/admin.component';
     AppComponent,
     AdministradorComponent,
     EmpleadosComponent,
-    AdminComponent
+    AdminComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { AdminComponent } from './admin/admin.component';
     ReactiveFormsModule
   ],
   providers: [ ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent],
 })
 export class AppModule { }

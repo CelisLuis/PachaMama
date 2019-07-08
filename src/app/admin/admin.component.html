@@ -1,6 +1,13 @@
-<div class="container">
-    <mat-toolbar>
-        <span>Angular</span>
-    </mat-toolbar>
-    <app-empleados></app-empleados>
-</div>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <button mat-button color="primary" class="menu-bottoms">Dashboard</button>
+        <button mat-button color="primary" class="menu-bottoms">Menu</button>
+        <button mat-button color="primary" class="menu-bottoms">Menu</button>
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-toolbar>Administrador</mat-toolbar>
+        <div class="container">
+            <app-empleados></app-empleados> 
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
