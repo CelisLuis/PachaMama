@@ -1,13 +1,13 @@
 <mat-drawer-container class="example-container">
     <mat-drawer mode="side" opened>
-        <button mat-button color="primary" class="menu-bottoms">Dashboard</button>
-        <button mat-button color="primary" class="menu-bottoms">Menu</button>
-        <button mat-button color="primary" class="menu-bottoms">Menu</button>
+        <button mat-button class="menu-bottoms" [routerLink]="['/dashboard']" routerLinkActive="mat-primary">Dashboard</button>
+        <button mat-button class="menu-bottoms" [routerLink]="['/empleados']" routerLinkActive="mat-primary">Empleados</button>
+        <button mat-button class="menu-bottoms" [routerLink]="['/gastos']" routerLinkActive="mat-primary">Gasto</button>
     </mat-drawer>
     <mat-drawer-content>
         <mat-toolbar>Administrador</mat-toolbar>
         <div class="container">
-            <app-empleados></app-empleados> 
+            <router-outlet></router-outlet> 
         </div>
     </mat-drawer-content>
 </mat-drawer-container>

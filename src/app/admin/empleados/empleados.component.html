@@ -8,27 +8,32 @@
   <!--mat-elevation-z8-->
   <hr>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="nombres">
             <th mat-header-cell *matHeaderCellDef> Nombre(s) </th>
-            <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.nombre_empleado}} </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="apellidoPaterno">
             <th mat-header-cell *matHeaderCellDef> A. Paterno </th>
-            <td mat-cell *matCellDef="let element"> {{element.apellidoPaterno}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.apellido_paterno}} </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="apellidoMaterno">
             <th mat-header-cell *matHeaderCellDef> A. Materno </th>
-            <td mat-cell *matCellDef="let element"> {{element.apellidoMaterno}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.apellido_materno}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="cargo">
             <th mat-header-cell *matHeaderCellDef> Cargo </th>
-            <td mat-cell *matCellDef="let element"> {{element.cargo}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.id_puesto}} </td>
         </ng-container>
 
         <ng-container matColumnDef="edit">
